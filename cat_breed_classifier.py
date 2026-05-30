@@ -384,30 +384,33 @@ def classify_cat(image):
     
     # Custom HTML Card (Tailored Premium Styles)
     html_card = f"""
-    <div style="
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%);
-        border: 1.5px solid rgba(79, 70, 229, 0.2);
-        border-radius: 16px;
+    <div class="breed-result-card" style="
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
         padding: 24px;
-        font-family: 'Outfit', 'Inter', sans-serif;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         transition: all 0.3s ease;
     ">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
             <div>
-                <span style="font-size: 12px; font-weight: 700; color: #4f46e5; text-transform: uppercase; tracking-letter: 0.05em;">Identified Breed</span>
-                <h3 style="margin: 2px 0 0 0; font-size: 28px; color: #1e1b4b; font-weight: 800; line-height: 1.2;">{top_breed}</h3>
+                <span style="font-size: 10px; font-weight: 700; color: #ff4e00; text-transform: uppercase; letter-spacing: 0.1em;">VISION CLASSIFICATION REPORT</span>
+                <h3 style="margin: 4px 0 0 0; font-size: 28px; color: #ffffff; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em;">{top_breed}</h3>
             </div>
             <div style="
-                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                background: linear-gradient(135deg, #ff4e00 0%, #b23600 100%);
                 color: white;
-                padding: 8px 16px;
+                padding: 8px 18px;
                 border-radius: 50px;
                 font-weight: 700;
-                font-size: 16px;
-                box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+                font-size: 14px;
+                box-shadow: 0 4px 15px rgba(255, 78, 0, 0.4);
+                letter-spacing: 0.02em;
             ">
-                🔥 Match: {top_score:.1%}
+                🔥 MATCH: {top_score:.1%}
             </div>
         </div>
         
@@ -415,38 +418,38 @@ def classify_cat(image):
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
             gap: 16px; 
-            background: rgba(255, 255, 255, 0.6); 
+            background: rgba(0, 0, 0, 0.3); 
             padding: 16px; 
-            border-radius: 12px;
-            border: 1px solid rgba(79, 70, 229, 0.05);
-            margin-bottom: 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 20px;
         ">
             <div>
-                <span style="font-size: 11px; text-transform: uppercase; color: #6b7280; font-weight: 700;">🌍 Origin</span>
-                <div style="font-size: 15px; color: #1f2937; font-weight: 600; margin-top: 4px;">{breed_info['origin']}</div>
+                <span style="font-size: 10px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); font-weight: 700; letter-spacing: 0.05em;">🌍 Origin</span>
+                <div style="font-size: 14px; color: #ffffff; font-weight: 600; margin-top: 4px;">{breed_info['origin']}</div>
             </div>
             <div>
-                <span style="font-size: 11px; text-transform: uppercase; color: #6b7280; font-weight: 700;">⏳ Lifespan</span>
-                <div style="font-size: 15px; color: #1f2937; font-weight: 600; margin-top: 4px;">{breed_info['lifespan']}</div>
+                <span style="font-size: 10px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); font-weight: 700; letter-spacing: 0.05em;">⏳ Lifespan</span>
+                <div style="font-size: 14px; color: #ffffff; font-weight: 600; margin-top: 4px;">{breed_info['lifespan']}</div>
             </div>
         </div>
         
-        <div style="margin-bottom: 18px;">
-            <span style="font-size: 11px; text-transform: uppercase; color: #6b7280; font-weight: 700;">🎭 Temperament</span>
-            <div style="font-size: 15px; color: #374151; font-weight: 500; margin-top: 4px; line-height: 1.4;">{breed_info['temperament']}</div>
+        <div style="margin-bottom: 20px; background: rgba(0, 0, 0, 0.15); padding: 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.02);">
+            <span style="font-size: 10px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); font-weight: 700; letter-spacing: 0.05em;">🎭 Temperament</span>
+            <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85); font-weight: 500; margin-top: 4px; line-height: 1.4;">{breed_info['temperament']}</div>
         </div>
         
         <div style="
-            background: linear-gradient(90deg, rgba(79, 70, 229, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
-            border-left: 4px solid #4f46e5;
+            background: linear-gradient(90deg, rgba(255, 78, 0, 0.08) 0%, rgba(255, 78, 0, 0.01) 100%);
+            border-left: 3px solid #ff4e00;
             padding: 14px;
             border-radius: 0 12px 12px 0;
             font-size: 14px;
-            color: #4f46e5;
+            color: #ffffff;
             line-height: 1.5;
         ">
-            <strong style="color: #1e1b4b; display: block; margin-bottom: 4px;">💡 Fun Fact:</strong>
-            <span style="color: #4b5563; font-style: italic;">"{breed_info['fun_fact']}"</span>
+            <strong style="color: #ff4e00; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;">💡 Fun Fact:</strong>
+            <span style="color: rgba(255, 255, 255, 0.75); font-style: italic;">"{breed_info['fun_fact']}"</span>
         </div>
     </div>
     """
@@ -455,91 +458,402 @@ def classify_cat(image):
 
 # --- Custom Premium Theme and CSS ---
 custom_css = """
-/* Import sleek modern Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Custom Premium CSS for breed.ai landing page UI */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Global Container Styling */
+/* Force dark mode color-scheme on root */
+:root {
+    color-scheme: dark;
+}
+
+/* Global Container & Page Styling */
+body, html {
+    background-color: #030303 !important;
+}
+
 .gradio-container {
-    font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
-    background-color: #fafafa !important;
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif !important;
+    background: radial-gradient(circle at 10% 20%, rgba(255, 78, 0, 0.08) 0%, transparent 45%), 
+                radial-gradient(circle at 90% 80%, rgba(255, 78, 0, 0.08) 0%, transparent 45%), 
+                radial-gradient(circle at 50% 50%, rgba(255, 78, 0, 0.04) 0%, transparent 60%), 
+                #050505 !important;
+    color: #ffffff !important;
+    min-height: 100vh;
+    padding: 0 !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
 }
 
-/* Header Text styling */
-.header-container {
-    text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    border-radius: 20px;
-    color: white;
-    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
-    margin-bottom: 30px;
+/* Top Navbar Styling */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-.header-container h1 {
-    font-size: 38px !important;
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo-icon {
+    font-size: 22px;
+}
+.logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+.orange-dot {
+    color: #ff4e00;
+}
+.nav-menu {
+    display: flex;
+    gap: 28px;
+}
+.nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+}
+.btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 18px;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #030303;
+    border-color: #ffffff;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    padding: 60px 24px 30px 24px;
+    align-items: center;
+}
+.hero-badge {
+    color: #ff4e00;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+.hero-headline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 54px !important;
     font-weight: 800 !important;
-    margin: 0 0 10px 0 !important;
-    letter-spacing: -0.02em !important;
-    color: white !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.03em !important;
+    color: #ffffff !important;
+    margin: 0 0 16px 0 !important;
 }
-.header-container p {
-    font-size: 16px !important;
-    opacity: 0.9;
-    margin: 0 !important;
+.hero-subtext {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 24px 0;
+    max-width: 520px;
 }
 
-/* Cards & Columns styling */
-.refined-card {
+/* Active Users Mockup */
+.active-users {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.user-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ff4e00;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff4e00;
+    display: inline-block;
+}
+.user-status {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+.user-count {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.user-avatars {
+    display: flex;
+    margin-left: 8px;
+}
+.user-avatars img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #050505;
+    margin-left: -8px;
+    object-fit: cover;
+}
+
+/* How It Works Panel (Finguard-style Lines) */
+.how-it-works-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 10px;
+}
+.step-item {
+    position: relative;
+    padding-bottom: 8px;
+}
+.step-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    padding: 8px 0;
+    font-weight: 600;
+    font-size: 15px;
+}
+.step-arrow {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+.step-item:hover .step-arrow {
+    color: #ff4e00;
+    transform: translate(2px, -2px);
+}
+.step-line {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 78, 0, 0.4) 50%, rgba(255, 255, 255, 0.05) 100%);
+    width: 100%;
+}
+
+/* Cards & Columns styling: Dark Glass */
+.refined-card, .block {
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: rgba(15, 15, 15, 0.5) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+    padding: 24px !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.refined-card:hover, .block:hover {
+    border-color: rgba(255, 78, 0, 0.15) !important;
+    box-shadow: 0 12px 45px rgba(255, 78, 0, 0.04) !important;
+}
+
+/* Row wrapper layout margins */
+.gradio-container .gr-row {
+    padding: 0 24px 60px 24px !important;
+    gap: 30px !important;
+}
+
+/* Title text within cards */
+.refined-card h3, .block h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    color: #ffffff !important;
+    margin-top: 0 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Image Input drop zone styling */
+.image-container, .image-frame, .upload-container, .gr-box {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 16px !important;
-    border: 1px solid #e5e7eb !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
-    background-color: white !important;
-    padding: 10px !important;
+    transition: all 0.3s ease !important;
+}
+.image-container:hover, .upload-container:hover {
+    border-color: rgba(255, 78, 0, 0.3) !important;
 }
 
-/* Custom interactive animation for buttons */
+/* Primary buttons (GET STARTED style) */
 button.primary-btn {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+    background: #ff4e00 !important;
     border: none !important;
     color: white !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 700 !important;
-    border-radius: 12px !important;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
+    font-size: 15px !important;
+    border-radius: 50px !important;
+    padding: 14px 28px !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 4px 15px rgba(255, 78, 0, 0.3) !important;
+    cursor: pointer !important;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    width: 100% !important;
+    margin-top: 15px !important;
 }
 button.primary-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4) !important;
+    box-shadow: 0 8px 25px rgba(255, 78, 0, 0.5) !important;
+    background: #ff5f18 !important;
 }
 button.primary-btn:active {
-    transform: translateY(0) !important;
+    transform: translateY(0) scale(0.985) !important;
 }
 
-/* Style Example Images to pop out on hover */
+/* Example section styling */
 .gr-samples-gallery {
-    border-radius: 12px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
     overflow: hidden;
+    padding: 12px !important;
+    margin-top: 10px !important;
 }
 .gr-samples-gallery img {
-    transition: transform 0.3s ease !important;
+    border-radius: 10px !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .gr-samples-gallery img:hover {
-    transform: scale(1.05) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 4px 15px rgba(255, 78, 0, 0.2) !important;
 }
 
 /* Output Label list formatting */
 .gr-label-output {
-    font-family: 'Outfit', sans-serif !important;
-    border-radius: 12px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+}
+.gr-label-output .bar {
+    background: linear-gradient(90deg, #ff4e00, #b23600) !important;
+    border-radius: 50px !important;
+    height: 10px !important;
+}
+.gr-label-output .label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+}
+
+/* Adjust scrollbars for the page */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 78, 0, 0.2);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 78, 0, 0.4);
+}
+
+/* Keyframe animations for transitions */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.breed-result-card {
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 """
 
 # --- Build Gradio App Blocks Layout ---
-with gr.Blocks(title="Cat Breed AI Classifier") as demo:
-    # 1. Hero Header
+with gr.Blocks(title="Cat Breed AI Classifier", css=custom_css) as demo:
+    # 1. Premium Header Navbar
     gr.HTML("""
-    <div class="header-container">
-        <h1>🐱 Cat Breed AI Classifier</h1>
-        <p>Upload a photo of your feline friend, and our Vision Transformer (ViT) will identify its breed instantly along with fun facts!</p>
+    <div class="navbar-container">
+        <div class="nav-logo">
+            <span class="logo-icon">🐾</span>
+            <span class="logo-text">breed<span class="orange-dot">.ai</span></span>
+        </div>
+        <div class="nav-menu">
+            <a href="#" class="nav-link active">Classifier</a>
+            <a href="#" class="nav-link">Breed Database</a>
+            <a href="#" class="nav-link">API Docs</a>
+            <a href="#" class="nav-link">About</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#" class="btn-secondary">Get API Key</a>
+        </div>
+    </div>
+    """)
+
+    # 2. Hero Header Section (Finguard styled)
+    gr.HTML("""
+    <div class="hero-section">
+        <div class="hero-left">
+            <span class="hero-badge">VIT VISION ENGINE v3.5</span>
+            <h1 class="hero-headline">SECURE YOUR<br>FELINE FUTURE.</h1>
+            <p class="hero-subtext">A premium vision intelligence platform identifying 48 distinct cat breeds with high-end Vision Transformers. Discover deep insights, temperaments, origins, and fun facts.</p>
+            <div class="active-users">
+                <span class="user-dot"></span>
+                <span class="user-status">Active Enthusiasts</span>
+                <span class="user-count">95K+</span>
+                <div class="user-avatars">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&q=80" alt="avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=64&q=80" alt="avatar">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&q=80" alt="avatar">
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="how-it-works-panel">
+                <div class="step-item">
+                    <div class="step-content">
+                        <span class="step-title">Select Feline Photo</span>
+                        <span class="step-arrow">↗</span>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-item">
+                    <div class="step-content">
+                        <span class="step-title">Run ViT Core Inference</span>
+                        <span class="step-arrow">→</span>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-item">
+                    <div class="step-content">
+                        <span class="step-title">Extract Breed Analytics</span>
+                        <span class="step-arrow">↘</span>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+            </div>
+        </div>
     </div>
     """)
     
@@ -555,7 +869,7 @@ with gr.Blocks(title="Cat Breed AI Classifier") as demo:
                 height=380
             )
             
-            submit_btn = gr.Button("🔮 Identify Breed", variant="primary", elem_classes="primary-btn")
+            submit_btn = gr.Button("🔮 RUN CLASSIFICATION ↗", variant="primary", elem_classes="primary-btn")
             
             # Example triggers
             gr.Markdown("### ✨ Quick Examples")
@@ -590,14 +904,16 @@ with gr.Blocks(title="Cat Breed AI Classifier") as demo:
                 <div style="
                     text-align: center; 
                     padding: 80px 20px; 
-                    color: #9ca3af; 
-                    border: 2px dashed #e5e7eb; 
-                    border-radius: 12px;
-                    font-family: 'Outfit', sans-serif;
+                    color: #ffffff; 
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px dashed rgba(255, 255, 255, 0.1); 
+                    border-radius: 20px;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
                 ">
-                    <span style="font-size: 48px; display: block; margin-bottom: 12px;">🐈</span>
-                    <strong>Waiting for a cat picture...</strong>
-                    <p style="margin: 6px 0 0 0; font-size: 14px; color: #a1a1aa;">Upload a photo or select one of the examples on the left.</p>
+                    <span style="font-size: 54px; display: block; margin-bottom: 16px; filter: drop-shadow(0 0 10px rgba(255, 78, 0, 0.25));">🐈</span>
+                    <strong style="font-size: 16px; font-weight: 700; color: #ffffff; display: block; margin-bottom: 8px; letter-spacing: -0.01em;">WAITING FOR DATA SOURCE</strong>
+                    <p style="margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.5); line-height: 1.5; max-width: 280px; margin: 0 auto;">Upload a feline image or select a preset example on the left to initiate model inference.</p>
                 </div>
                 """,
                 visible=True
@@ -650,9 +966,9 @@ if __name__ == "__main__":
     # Launch local web server (automatically opens a browser tab)
     demo.launch(
         server_name="127.0.0.1", 
-        server_port=7860, 
+        server_port=int(os.environ.get("GRADIO_SERVER_PORT", 7860)), 
         inbrowser=True,
         share=False,
-        theme=gr.themes.Soft(primary_hue="indigo", secondary_hue="purple"),
+        theme=gr.themes.Soft(primary_hue="red", secondary_hue="red", neutral_hue="slate"),
         css=custom_css
     )
